@@ -82,6 +82,7 @@ function App() {
                 title="Новое место"
                 btnTitle="Создать"
                 isOpen={isOpenAddPlace}
+                onClose={closeAllPopups}
             >
                 <input
                     className="popup__user-input popup__user-input_input_card-title"
@@ -108,6 +109,7 @@ function App() {
                 title="Обновить аватар"
                 btnTitle="Сохранить"
                 isOpen={isOpenEditAvatar}
+                onClose={closeAllPopups}
             >
                 <input
                     className="popup__user-input popup__user-input_input_card-image"
