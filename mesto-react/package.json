@@ -36,7 +36,9 @@
     ]
   },
   "devDependencies": {
+    "css-loader": "^6.7.1",
     "eslint-config-prettier": "^8.5.0",
+    "mini-css-extract-plugin": "^2.6.1",
     "prettier": "2.7.1"
   }
 }
