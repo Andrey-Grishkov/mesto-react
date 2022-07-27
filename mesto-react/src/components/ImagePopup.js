@@ -1,12 +1,13 @@
-function ImagePopup() {
+function ImagePopup(props) {
+
     return (
         <div>
-            <div className="popup popup_type_image">
+            <div className={`popup popup_type_image ${props.card && 'popup_is-opened'}`}>
                 <div className="popup__image-content">
-                    <button className="popup__close" type="button"></button>
+                    <button className="popup__close" type="button" onClick={props.onClose}></button>
                     <img className="popup__image" alt={''}
-                         src={''}/>
-                    <h3 className="popup__image-title">{''}</h3>
+                         style={{ backgroundImage: `url(${props.link})` }}/>
+                    <h3 className="popup__image-title">{props.name}</h3>
                 </div>
             </div>
         </div>

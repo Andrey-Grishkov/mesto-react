@@ -1,12 +1,17 @@
 import React from "react";
 
 function Card(props) {
+    function handleClick() {
+        props.onCardClick(props);
+    }
+
     return (
         <div>
             <li className="card">
                 <button className="card__delete" type="button"></button>
                 <img className="card__image"
                      style={{ backgroundImage: `url(${props.link})` }}
+                     onClick={handleClick}
                 />
                 <div className="card__info">
                     <h2 className="card__title">{props.name}</h2>

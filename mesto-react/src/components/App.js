@@ -6,22 +6,11 @@ import PopupWithForm from "./PopupWithForm";
 import ImagePopup from "./ImagePopup";
 
 
-/*
-
-function handleEditProfileClick () {
-    document.querySelector('.popup_type_profile').classList.add('popup_is-opened');
-}
-
-function handleAddPlaceClick () {
-    document.querySelector('.popup_type_add-card').classList.add('popup_is-opened');
-}
-
- */
-
 function App() {
     const [isOpenEditAvatar, setIsOpenEditAvatar] = React.useState(false);
     const [isOpenEditProfile, setIsOpenEditProfile] = React.useState(false);
     const [isOpenAddPlace, setIsOpenAddPlace] = React.useState(false);
+    const [selectedCard, setSelectedCard] = React.useState(false);
 
     const handleEditAvatarClick = () => {
         setIsOpenEditAvatar(true);
@@ -35,21 +24,25 @@ function App() {
         setIsOpenAddPlace(true);
     };
 
+    const handleCardClick = () => {
+        setSelectedCard(true);
+    };
+
     const closeAllPopups = () => {
         setIsOpenEditAvatar(false);
         setIsOpenEditProfile(false);
         setIsOpenAddPlace(false);
+        setSelectedCard(false);
     };
 
   return (
-    <div className="App">
-        <body className="page">
         <div className="page__content">
             <Header />
             <Main
                 onEditProfile={handleEditProfileClick}
                 onAddPlace={handleAddPlaceClick}
                 onEditAvatar={handleEditAvatarClick}
+                onCardClick={handleCardClick}
             />
             <Footer />
             <PopupWithForm
@@ -127,10 +120,13 @@ function App() {
                 btnTitle="Да"
             >
             </PopupWithForm>
-            <ImagePopup />
+            <ImagePopup
+                card={selectedCard}
+                name={selectedCard.name}
+                link={selectedCard.link}
+                onClose={closeAllPopups}
+            />
         </div>
-        </body>
-    </div>
   );
 }
 

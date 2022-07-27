@@ -19,15 +19,17 @@ function Main(props) {
                 setUserDescription(res.about);
                 setUserAvatar(res.avatar);
             })
+            .catch((err) => console.log(`Ошибка: ${err}`));
+    }, []);
+
+    React.useEffect(() => {
         api
             .getCards()
             .then((res) => {
                 setCards(res);
-                console.log(res)
             })
-            .catch((err) => console.log(err));
+            .catch((err) => console.log(`Ошибка: ${err}`));
     }, []);
-
 
     return (
         <main className="content">
@@ -53,10 +55,13 @@ function Main(props) {
             </section>
             <section className="elements">
                 <ul className="cards">
-                    {cards.map((card) => (<Card
+                    {cards.map((card) => (
+                        <Card
                         link={card.link}
                         name={card.name}
                         likes={card.likes}
+                        key={card._id}
+                        onCardClick={props.onCardClick}
                         />
                     ))}
                 </ul>
@@ -66,22 +71,3 @@ function Main(props) {
 }
 
 export default Main;
-
-/*
-<li className="card">
-    <button className="card__trach-icon" type="button" />
-    <img
-        className="card__image"
-        alt={card.name}
-        src={card.link}
-        onClick={handleClick}
-    />
-    <div className="card__description">
-        <h3 className="card__name">{card.name}</h3>
-        <div className="card__like-container">
-            <button className="card__like-button" type="button" />
-            <p className="card__like-count">{card.likes.length}</p>
-        </div>
-    </div>
-</li>
- */
