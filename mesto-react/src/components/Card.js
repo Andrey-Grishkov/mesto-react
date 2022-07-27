@@ -1,8 +1,9 @@
 import React from "react";
 
 function Card(props) {
+
     function handleClick() {
-        props.onCardClick(props);
+        props.cardClick(props.itemCard);
     }
 
     return (

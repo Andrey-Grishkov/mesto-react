@@ -57,11 +57,12 @@ function Main(props) {
                 <ul className="cards">
                     {cards.map((card) => (
                         <Card
+                        itemCard={card}
                         link={card.link}
                         name={card.name}
                         likes={card.likes}
                         key={card._id}
-                        onCardClick={props.onCardClick}
+                        cardClick={props.onCardClick}
                         />
                     ))}
                 </ul>
