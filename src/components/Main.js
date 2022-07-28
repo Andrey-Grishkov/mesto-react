@@ -2,7 +2,7 @@ import React from 'react';
 import avatar from '../images/profile__avatar.png';
 import edit from '../images/profile__edit-image.svg';
 import add from '../images/profile__add-image.svg';
-import api from './utils/api.js';
+import api from '../utils/api.js';
 import Card from './Card';
 
 function Main(props) {

@@ -9,7 +9,7 @@ function App() {
   const [isOpenEditAvatar, setIsOpenEditAvatar] = React.useState(false);
   const [isOpenEditProfile, setIsOpenEditProfile] = React.useState(false);
   const [isOpenAddPlace, setIsOpenAddPlace] = React.useState(false);
-  const [selectedCard, setSelectedCard] = React.useState([]);
+  const [selectedCard, setSelectedCard] = React.useState(null);
   const [isOpenImage, setIsOpenImage] = React.useState(false);
 
   const handleEditAvatarClick = () => {
@@ -130,8 +130,8 @@ function App() {
       ></PopupWithForm>
       <ImagePopup
         isOpen={isOpenImage}
-        name={selectedCard.name}
-        link={selectedCard.link}
+        name={selectedCard && selectedCard.name}
+        link={selectedCard && selectedCard.link}
         onClose={closeAllPopups}
       />
     </div>
