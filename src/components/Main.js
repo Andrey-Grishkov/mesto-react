@@ -37,6 +37,7 @@ function Main(props) {
         <img
           className='profile__avatar'
           style={{ backgroundImage: `url(${userAvatar})` }}
+          src={userAvatar}
         />
         <button
           className='profile__avatar-redaction'

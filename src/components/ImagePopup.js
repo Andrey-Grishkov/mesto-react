@@ -11,7 +11,7 @@ function ImagePopup(props) {
             className='popup__close'
             type='button'
             onClick={props.onClose}
-          ></button>git add
+          ></button>
           <img className='popup__image' alt={props.name} src={props.link} />
           <h3 className='popup__image-title'>{props.name}</h3>
         </div>

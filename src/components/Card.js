@@ -14,6 +14,7 @@ function Card({ itemCard, link, name, likes, cardClick }) {
           style={{ backgroundImage: `url(${link})` }}
           onClick={handleClick}
           alt={name}
+          src={link}
         />
         <div className='card__info'>
           <h2 className='card__title'>{name}</h2>
