@@ -6,7 +6,7 @@ import api from '../utils/api.js';
 import Card from './Card';
 import {CurrentUserContext} from '../contexts/CurrentUserContext';
 
-function Main(props) {
+function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) {
 
   const [cards, setCards] = React.useState([]);
   const currentUser = React.useContext(CurrentUserContext);
@@ -48,7 +48,7 @@ function Main(props) {
         <button
           className='profile__avatar-redaction'
           type='button'
-          onClick={currentUser !== null ? props.onEditAvatar:''}
+          onClick={onEditAvatar}
         ></button>
         <div className='profile__info'>
           <div className='profile__info-main'>
@@ -56,7 +56,7 @@ function Main(props) {
             <button
               className='profile__edit'
               type='button'
-              onClick={props.onEditProfile}
+              onClick={onEditProfile}
             >
               <img
                 className='profile__edit-image'
@@ -70,7 +70,7 @@ function Main(props) {
         <button
           className='profile__add'
           type='button'
-          onClick={props.onAddPlace}
+          onClick={onAddPlace}
         >
           <img className='profile__add-image' src={add} alt='кнопка добавить' />
         </button>
@@ -84,7 +84,7 @@ function Main(props) {
               name={card.name}
               likes={card.likes}
               key={card._id}
-              cardClick={props.onCardClick}
+              cardClick={onCardClick}
               onCardLike={handleCardLike}
               onCardDelete={handleCardDelete}
             />
