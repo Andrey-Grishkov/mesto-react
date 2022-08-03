@@ -1,6 +1,13 @@
 import React from 'react';
+import {CurrentUserContext} from '../contexts/CurrentUserContext';
 
 function Card({ itemCard, link, name, likes, cardClick }) {
+  const currentUser = React.useContext(CurrentUserContext);
+  const isOwn = itemCard.owner._id === currentUser._id;
+  const cardDeleteButtonClassName = (
+    `card__delete ${isOwn ? '' : 'card__delete_hidden'}`
+  );
+
   function handleClick() {
     cardClick(itemCard);
   }
@@ -8,7 +15,7 @@ function Card({ itemCard, link, name, likes, cardClick }) {
   return (
     <div>
       <li className='card'>
-        <button className='card__delete' type='button'></button>
+        <button className={cardDeleteButtonClassName} type='button'></button>
         <img
           className='card__image'
           style={{ backgroundImage: `url(${link})` }}
