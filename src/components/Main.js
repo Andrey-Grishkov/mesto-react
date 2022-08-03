@@ -4,12 +4,14 @@ import edit from '../images/profile__edit-image.svg';
 import add from '../images/profile__add-image.svg';
 import api from '../utils/api.js';
 import Card from './Card';
+import {CurrentUserContext} from '../contexts/CurrentUserContext';
 
 function Main(props) {
   const [userName, setUserName] = React.useState('');
   const [userDescription, setUserDescription] = React.useState('');
   const [userAvatar, setUserAvatar] = React.useState('');
   const [cards, setCards] = React.useState([]);
+  const currentUser = React.useContext(CurrentUserContext);
 
   React.useEffect(() => {
     api
@@ -36,17 +38,17 @@ function Main(props) {
       <section className='profile'>
         <img
           className='profile__avatar'
-          style={{ backgroundImage: `url(${userAvatar})` }}
-          src={userAvatar}
+          style={{ backgroundImage: `url(${currentUser !== null ? currentUser.avatar:''})` }}
+          src={currentUser !== null ? currentUser.avatar:''}
         />
         <button
           className='profile__avatar-redaction'
           type='button'
-          onClick={props.onEditAvatar}
+          onClick={currentUser !== null ? props.onEditAvatar:''}
         ></button>
         <div className='profile__info'>
           <div className='profile__info-main'>
-            <h1 className='profile__name'>{userName}</h1>
+            <h1 className='profile__name'>{currentUser !== null ? currentUser.name:''}</h1>
             <button
               className='profile__edit'
               type='button'
@@ -59,7 +61,7 @@ function Main(props) {
               />
             </button>
           </div>
-          <p className='profile__user-about'>{userDescription}</p>
+          <p className='profile__user-about'>{currentUser !== null ? currentUser.about:''}</p>
         </div>
         <button
           className='profile__add'
