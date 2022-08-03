@@ -30,9 +30,12 @@ function Main(props) {
     });
   }
 
-
-
-
+  function handleCardDelete(card) {
+    // Отправляем запрос в API и получаем обновлённые данные карточки
+    api.deleteCard(card._id).then(() => {
+      setCards((state) => state.filter((c) => c._id !== card._id));
+    });
+  }
 
   return (
     <main className='content'>
@@ -83,6 +86,7 @@ function Main(props) {
               key={card._id}
               cardClick={props.onCardClick}
               onCardLike={handleCardLike}
+              onCardDelete={handleCardDelete}
             />
           ))}
         </ul>

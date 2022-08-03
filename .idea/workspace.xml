@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c75f1de3-03f1-4569-bc27-dcc3c197670a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/blocks/card/__like/_active/card__like_active.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/blocks/card/__like/_active/card__like_active.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Card.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Card.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +37,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../sprint-11/sonya mesto/mesto-react" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../sprint-8/mesto" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -90,7 +90,7 @@
       <workItem from="1659438720690" duration="13000" />
       <workItem from="1659438746789" duration="15000" />
       <workItem from="1659438771689" duration="657000" />
-      <workItem from="1659514375006" duration="7984000" />
+      <workItem from="1659514375006" duration="10024000" />
     </task>
     <servers />
   </component>
