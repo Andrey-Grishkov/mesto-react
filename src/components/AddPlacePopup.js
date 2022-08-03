@@ -1,7 +1,7 @@
 import PopupWithForm from './PopupWithForm';
 import React from 'react';
 
-function AddPlacePopup({isOpen, onClose, onAddPlace}) {
+function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
   const cardNameRef = React.useRef();
   const cardLinkRef = React.useRef();
 
@@ -9,10 +9,9 @@ function AddPlacePopup({isOpen, onClose, onAddPlace}) {
     e.preventDefault();
     onAddPlace({
       name: cardNameRef.current.value,
-      link: cardLinkRef.current.value
+      link: cardLinkRef.current.value,
     });
   }
-
 
   return (
     <PopupWithForm

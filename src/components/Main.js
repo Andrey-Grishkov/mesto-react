@@ -1,13 +1,18 @@
 import React from 'react';
-import avatar from '../images/profile__avatar.png';
 import edit from '../images/profile__edit-image.svg';
 import add from '../images/profile__add-image.svg';
-import api from '../utils/api.js';
 import Card from './Card';
-import {CurrentUserContext} from '../contexts/CurrentUserContext';
+import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
-function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick, cards, onCardLike, onCardDelete }) {
-
+function Main({
+  onEditProfile,
+  onAddPlace,
+  onEditAvatar,
+  onCardClick,
+  cards,
+  onCardLike,
+  onCardDelete,
+}) {
   const currentUser = React.useContext(CurrentUserContext);
 
   return (
@@ -15,8 +20,12 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick, cards, onC
       <section className='profile'>
         <img
           className='profile__avatar'
-          style={{ backgroundImage: `url(${currentUser !== null ? currentUser.avatar:''})` }}
-          src={currentUser !== null ? currentUser.avatar:''}
+          style={{
+            backgroundImage: `url(${
+              currentUser !== null ? currentUser.avatar : ''
+            })`,
+          }}
+          src={currentUser !== null ? currentUser.avatar : ''}
         />
         <button
           className='profile__avatar-redaction'
@@ -25,7 +34,9 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick, cards, onC
         ></button>
         <div className='profile__info'>
           <div className='profile__info-main'>
-            <h1 className='profile__name'>{currentUser !== null ? currentUser.name:''}</h1>
+            <h1 className='profile__name'>
+              {currentUser !== null ? currentUser.name : ''}
+            </h1>
             <button
               className='profile__edit'
               type='button'
@@ -38,13 +49,11 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick, cards, onC
               />
             </button>
           </div>
-          <p className='profile__user-about'>{currentUser !== null ? currentUser.about:''}</p>
+          <p className='profile__user-about'>
+            {currentUser !== null ? currentUser.about : ''}
+          </p>
         </div>
-        <button
-          className='profile__add'
-          type='button'
-          onClick={onAddPlace}
-        >
+        <button className='profile__add' type='button' onClick={onAddPlace}>
           <img className='profile__add-image' src={add} alt='кнопка добавить' />
         </button>
       </section>
