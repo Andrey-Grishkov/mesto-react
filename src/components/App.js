@@ -23,8 +23,6 @@ function App() {
         .catch((err) => console.log(`Ошибка: ${err}`));
     }, [])
 
-
-
   const handleEditAvatarClick = () => {
     setIsOpenEditAvatar(true);
   };
@@ -49,6 +47,15 @@ function App() {
     setIsOpenImage(false);
   };
 
+  const handleUpdateUser = (userInfo) => {
+    api.
+    addUserInfo(userInfo)
+      .then((res) => {
+      setCurrentUser(res);
+      closeAllPopups()})
+      .catch((err) => console.log(`Ошибка: ${err}`));
+  }
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
     <div className='page__content'>
@@ -63,6 +70,7 @@ function App() {
       <EditProfilePopup
         isOpen={isOpenEditProfile}
         onClose={closeAllPopups}
+        onUpdateUser={handleUpdateUser}
       />
       <PopupWithForm
         name='add-card'
