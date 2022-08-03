@@ -8,7 +8,9 @@ function Card({ itemCard, link, name, likes, cardClick, onCardLike }) {
     `card__delete ${isOwn ? '' : 'card__delete_hidden'}`
   );
   const isLiked = itemCard.likes.some(i => i._id === currentUser._id);
-  const cardLikeButtonClassName = `...`
+  const cardLikeButtonClassName = (
+    `card__like ${isLiked ? 'card__like_active' : ''}`
+  );
 
   function handleClick() {
     cardClick(itemCard);
@@ -32,7 +34,7 @@ function Card({ itemCard, link, name, likes, cardClick, onCardLike }) {
         <div className='card__info'>
           <h2 className='card__title'>{name}</h2>
           <div className='card__like-container'>
-            <button className='card__like' type='button' onClick={handleLikeClick}></button>
+            <button className={cardLikeButtonClassName} type='button' onClick={handleLikeClick}></button>
             <div className='card__like-counter'>{likes.length}</div>
           </div>
         </div>
