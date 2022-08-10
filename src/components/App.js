@@ -87,14 +87,14 @@ function App() {
     // Отправляем запрос в API и получаем обновлённые данные карточки
     api.changeLikeCardStatus(card._id, !isLiked).then((newCard) => {
       setCards((state) => state.map((c) => (c._id === card._id ? newCard : c)));
-    });
+    }).catch((err) => console.log(`Ошибка: ${err}`));
   }
 
   function handleCardDelete(card) {
     // Отправляем запрос в API и получаем обновлённые данные карточки
     api.deleteCard(card._id).then(() => {
       setCards((state) => state.filter((c) => c._id !== card._id));
-    });
+    }).catch((err) => console.log(`Ошибка: ${err}`));
   }
 
   const handleAddPlaceSubmit = (data) => {
